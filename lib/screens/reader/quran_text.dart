@@ -108,7 +108,10 @@ class QuranAyahText extends StatelessWidget {
           activeStyle: TextStyle(
             color: colors.gold,
             shadows: <Shadow>[
-              Shadow(color: colors.gold.withValues(alpha: 0.45), blurRadius: 12),
+              Shadow(
+                color: colors.gold.withValues(alpha: 0.45),
+                blurRadius: 12,
+              ),
             ],
           ),
           pastStyle: TextStyle(color: colors.ink.withValues(alpha: 0.55)),

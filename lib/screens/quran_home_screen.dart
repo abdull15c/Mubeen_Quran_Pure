@@ -116,29 +116,29 @@ class _QuranHomeScreenState extends State<QuranHomeScreen> {
       bottomNavigationBar: hideNavigation
           ? null
           : NavigationBar(
-        selectedIndex: _selectedIndex,
-        onDestinationSelected: _selectTab,
-        destinations: <NavigationDestination>[
-          NavigationDestination(
-            icon: const Icon(Icons.auto_stories_outlined),
-            selectedIcon: const Icon(Icons.auto_stories_rounded),
-            label: l?.tabRead ?? 'Читать',
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.grid_view_outlined),
-            selectedIcon: const Icon(Icons.grid_view_rounded),
-            label: l?.tabNavigation ?? 'Навигация',
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.search_rounded),
-            label: l?.tabSearch ?? 'Поиск',
-          ),
-          NavigationDestination(
-            icon: const Icon(Icons.tune_rounded),
-            label: l?.tabSettings ?? 'Настройки',
-          ),
-        ],
-      ),
+              selectedIndex: _selectedIndex,
+              onDestinationSelected: _selectTab,
+              destinations: <NavigationDestination>[
+                NavigationDestination(
+                  icon: const Icon(Icons.auto_stories_outlined),
+                  selectedIcon: const Icon(Icons.auto_stories_rounded),
+                  label: l?.tabRead ?? 'Читать',
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.grid_view_outlined),
+                  selectedIcon: const Icon(Icons.grid_view_rounded),
+                  label: l?.tabNavigation ?? 'Навигация',
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.search_rounded),
+                  label: l?.tabSearch ?? 'Поиск',
+                ),
+                NavigationDestination(
+                  icon: const Icon(Icons.tune_rounded),
+                  label: l?.tabSettings ?? 'Настройки',
+                ),
+              ],
+            ),
     );
   }
 }

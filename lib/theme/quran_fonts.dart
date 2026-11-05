@@ -30,26 +30,27 @@ final class QuranFontSpec {
   final String previewLabel;
 }
 
-const Map<QuranFont, QuranFontSpec> kQuranFontSpecs = <QuranFont, QuranFontSpec>{
-  QuranFont.hafs: QuranFontSpec(
-    font: QuranFont.hafs,
-    family: 'KFGQPCHafs',
-    lineHeight: 1.8,
-    previewLabel: 'KFGQPC Hafs',
-  ),
-  QuranFont.hafsSmart: QuranFontSpec(
-    font: QuranFont.hafsSmart,
-    family: 'KFGQPCHafsSmart',
-    lineHeight: 1.75,
-    previewLabel: 'Hafs Smart',
-  ),
-  QuranFont.amiri: QuranFontSpec(
-    font: QuranFont.amiri,
-    family: 'AmiriQuran',
-    lineHeight: 1.95,
-    previewLabel: 'Amiri Quran',
-  ),
-};
+const Map<QuranFont, QuranFontSpec> kQuranFontSpecs =
+    <QuranFont, QuranFontSpec>{
+      QuranFont.hafs: QuranFontSpec(
+        font: QuranFont.hafs,
+        family: 'KFGQPCHafs',
+        lineHeight: 1.8,
+        previewLabel: 'KFGQPC Hafs',
+      ),
+      QuranFont.hafsSmart: QuranFontSpec(
+        font: QuranFont.hafsSmart,
+        family: 'KFGQPCHafsSmart',
+        lineHeight: 1.75,
+        previewLabel: 'Hafs Smart',
+      ),
+      QuranFont.amiri: QuranFontSpec(
+        font: QuranFont.amiri,
+        family: 'AmiriQuran',
+        lineHeight: 1.95,
+        previewLabel: 'Amiri Quran',
+      ),
+    };
 
 extension QuranFontSpecX on QuranFont {
   QuranFontSpec get spec => kQuranFontSpecs[this]!;

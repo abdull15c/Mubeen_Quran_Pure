@@ -184,10 +184,7 @@ class ReaderScreenState extends State<ReaderScreen>
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text('MUBEEN', style: TextStyle(fontSize: 16, letterSpacing: 2.4)),
-          Text(
-            'QURAN PURE',
-            style: TextStyle(fontSize: 9, letterSpacing: 2.8),
-          ),
+          Text('QURAN PURE', style: TextStyle(fontSize: 9, letterSpacing: 2.8)),
         ],
       ),
       actions: <Widget>[

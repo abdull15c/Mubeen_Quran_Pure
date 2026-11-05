@@ -294,11 +294,7 @@ class AyahCard extends StatelessWidget {
               ),
               const Divider(height: 1),
               tile(Icons.notes_rounded, l.tafsirSaadi, _AyahAction.tafsir),
-              tile(
-                Icons.translate_rounded,
-                l.wordAnalysis,
-                _AyahAction.words,
-              ),
+              tile(Icons.translate_rounded, l.wordAnalysis, _AyahAction.words),
               tile(
                 Icons.mic_none_rounded,
                 l.recitationCheck,
