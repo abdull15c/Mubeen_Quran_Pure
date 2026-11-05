@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!--
+      Backup paths are literal and do not support quran_pure_v*.db globs.
+      Excluding the file-domain root covers every generated database version;
+      Excluding the file-domain root covers every generated database version;
+      the sharedpref domain is also excluded to protect sensitive settings and bookmarks.
+    -->
+    <exclude domain="file" path="." />
+    <exclude domain="sharedpref" path="." />
+</full-backup-content>

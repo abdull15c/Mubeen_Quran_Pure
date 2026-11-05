@@ -1,0 +1,17 @@
+{
+  "format_version": 1,
+  "model_id": "bpemb-ru-wiki-vs10000-d100",
+  "language": "ru",
+  "vocabulary_size": 10000,
+  "dimension": 100,
+  "ayah_count": 6236,
+  "cosine_threshold": 0.36,
+  "topic_cosine_threshold": 0.48,
+  "model_sha256": "042960fa54651237e0f74cf347ed992b91fe410627695d65430852baf5681a12",
+  "token_embeddings_sha256": "5a9a3733579418fc733d3a0a887525d5d9ff952d3f37593cbd51b20dad456020",
+  "index_sha256": "020bc9b4ba6ae3450751e63467a0006092338b46db1edcfeeb175d3dfcb70d84",
+  "topic_index_sha256": "c27d0f3ca76d35ac4cf324e70b0f7728ebd185dd4a4ee259b2a5a1e496fa885e",
+  "corpus_sha256": "1abaced8662b57dcffae7d7a985cb6140b4745e3c5626a11820985753201d387",
+  "license": "MIT",
+  "source": "https://bpemb.h-its.org/ru/"
+}

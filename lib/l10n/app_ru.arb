@@ -1,0 +1,349 @@
+{
+  "@@locale": "ru",
+
+  "appTitle": "Mubeen Quran Pure",
+  "appName": "MUBEEN",
+  "appSubtitle": "QURAN PURE",
+
+  "tabRead": "Читать",
+  "tabNavigation": "Навигация",
+  "tabSearch": "Поиск",
+  "tabSettings": "Настройки",
+
+  "settingsTitle": "Настройки чтения",
+  "sectionAppearance": "Оформление",
+  "sectionTranslation": "Перевод смыслов",
+  "sectionTextSize": "Размер текста",
+  "sectionHandsFreeReading": "Чтение без рук",
+
+  "eyeCareFilter": "Защита глаз (Ночной фильтр)",
+  "showTranslation": "Показывать перевод",
+  "showTranslationSubtitle": "Арабский текст всегда остаётся главным",
+  "onlineTranslation": "Онлайн-перевод",
+  "downloading": "Загрузка...",
+
+  "arabicTextSize": "Арабский текст",
+  "translationTextSize": "Русский перевод",
+  "autoScrollSpeed": "Скорость автопрокрутки",
+  "autoScrollSpeedValue": "{value} строк/мин",
+  "@autoScrollSpeedValue": {
+    "placeholders": {
+      "value": {"type": "String"}
+    }
+  },
+  "autoScrollHint": "Запустите автопрокрутку кнопкой в режиме вертикального чтения. Одно касание ставит её на паузу.",
+
+  "guideTitle": "Руководство и подсказки",
+  "guideSubtitle": "Жесты, автопрокрутка, тафсир и поиск",
+  "onboardingTitle": "О приложении и напоминание",
+  "onboardingSubtitle": "Открыть вводный экран с аятом-назиданием",
+  "sourcesTitle": "Источники и атрибуция",
+  "sourcesSubtitle": "Информация о текстах и лицензиях",
+  "privacyNote": "Только Коран. Без рекламы, регистрации, ленты, аналитики чтения и посторонних разделов. Настройки и закладки хранятся на устройстве.",
+
+  "themeParchment": "Пергамент",
+  "themeOled": "OLED",
+  "themeEmerald": "Изумруд",
+  "themeLight": "Светлая",
+  "themeLabel": "Тема {name}",
+  "@themeLabel": {
+    "placeholders": {
+      "name": {"type": "String"}
+    }
+  },
+
+  "jumpToAyah": "Перейти к аяту",
+  "verticalReading": "Вертикальное чтение",
+  "quranPages": "Страницы Корана",
+  "surahInfoLabel": "Сура {id}. {name} ({count} аятов)",
+  "@surahInfoLabel": {
+    "placeholders": {
+      "id": {"type": "int"},
+      "name": {"type": "String"},
+      "count": {"type": "int"}
+    }
+  },
+
+  "meccan": "Мекканская",
+  "medinan": "Мединская",
+  "listenSurah": "Слушать суру",
+  "pause": "Пауза",
+  "listenAyah": "Слушать аят",
+  "copyAyah": "Скопировать аят",
+  "wordAnalysis": "Пословный разбор",
+  "tafsirSaadi": "Тафсир ас-Саади",
+  "recitationCheck": "Проверить чтение (Хифз)",
+
+  "addBookmark": "Добавить закладку (зажмите для выбора папки)",
+  "removeBookmark": "Удалить закладку (зажмите для выбора папки)",
+
+  "ayahCopied": "Аят {surah}:{ayah} скопирован",
+  "@ayahCopied": {
+    "placeholders": {
+      "surah": {"type": "int"},
+      "ayah": {"type": "int"}
+    }
+  },
+  "copyFailed": "Не удалось скопировать аят.",
+  "quranReference": "Коран ({surah}:{ayah})",
+  "@quranReference": {
+    "placeholders": {
+      "surah": {"type": "int"},
+      "ayah": {"type": "int"}
+    }
+  },
+
+  "tafsirTitle": "Тафсир ас-Саади · {surah}:{ayah}",
+  "@tafsirTitle": {
+    "placeholders": {
+      "surah": {"type": "int"},
+      "ayah": {"type": "int"}
+    }
+  },
+  "tafsirSubtitle": "Толкование Священного Корана шейха Абдур-Рахмана ас-Саади",
+  "tafsirNotFound": "Тафсир для этого аята не найден.",
+
+  "wordAnalysisTitle": "Пословный разбор · {surah}:{ayah}",
+  "@wordAnalysisTitle": {
+    "placeholders": {
+      "surah": {"type": "int"},
+      "ayah": {"type": "int"}
+    }
+  },
+  "wordAnalysisSubtitle": "Нажмите на слово для подробной грамматики и корня",
+  "wordAnalysisNotFound": "Пословный разбор не найден.",
+  "wordTranslation": "Перевод",
+  "wordRoot": "Корень",
+  "wordLemma": "Лемма",
+  "wordPartOfSpeech": "Часть речи",
+  "notSpecified": "Не указано",
+  "close": "Закрыть",
+
+  "sajda": "Сажда",
+  "juz": "Джуз {number}",
+  "@juz": {
+    "placeholders": {
+      "number": {"type": "int"}
+    }
+  },
+
+  "autoScroll": "Автопрокрутка",
+  "slower": "Медленнее",
+  "faster": "Быстрее",
+  "linesPerMinute": "{value} стр/м",
+  "@linesPerMinute": {
+    "placeholders": {
+      "value": {"type": "int"}
+    }
+  },
+
+  "readerTipTitle": "Подсказка для чтения",
+  "readerTipBody": "Нажимайте иконки возле каждого аята для пословного разбора, тафсира ас-Саади и закладок.",
+  "understood": "Понятно",
+
+  "failedToOpenSurah": "Не удалось открыть суру.",
+  "noAyahsInSurah": "В этой суре нет аятов.",
+  "failedToLoadPage": "Не удалось загрузить страницу {page}.",
+  "@failedToLoadPage": {
+    "placeholders": {
+      "page": {"type": "int"}
+    }
+  },
+  "noAyahsOnPage": "На странице {page} нет аятов.",
+  "@noAyahsOnPage": {
+    "placeholders": {
+      "page": {"type": "int"}
+    }
+  },
+  "retry": "Повторить",
+  "failedToLoadData": "Не удалось загрузить данные.",
+
+  "pageOfTotal": "Страница {page} из 604",
+  "@pageOfTotal": {
+    "placeholders": {
+      "page": {"type": "int"}
+    }
+  },
+  "textLayout": "Текстовая вёрстка",
+
+  "failedToOpenQuran": "Не удалось открыть Коран",
+  "checkStorageAndRestart": "Проверьте свободное место на устройстве и перезапустите приложение.",
+
+  "navigationSurahs": "Суры",
+  "navigationJuz": "Джузы",
+  "navigationHizb": "Хизбы",
+  "navigationBookmarks": "Закладки",
+
+  "searchInQuran": "Поиск в Коране",
+  "searchHint": "Поиск по тексту, переводу или номеру аята",
+  "noResults": "Ничего не найдено",
+  "recentSearches": "Недавние запросы",
+  "clearAll": "Очистить все",
+
+  "uiLanguage": "Язык интерфейса",
+  "languageRussian": "Русский",
+  "languageEnglish": "English",
+  "languageTajik": "Тоҷикӣ",
+  "languageUzbek": "Oʻzbekcha",
+  "languageKyrgyz": "Кыргызча",
+  "languageAzerbaijani": "Azərbaycan",
+
+  "aboutTitle": "Источники и атрибуция",
+  "aboutAppDescription": "Бесплатное приложение для чтения Священного Корана без рекламы и сбора данных.",
+  "aboutDataSources": "ИСТОЧНИКИ ДАННЫХ",
+  "sourceUthmaniTitle": "Арабский текст Корана (Uthmani)",
+  "sourceUthmaniDesc": "Предоставлен проектом Tanzil.net. Используется на условиях лицензии Tanzil Quran License. Проект Tanzil предоставляет выверенный и аутентичный текст Священного Корана.",
+  "sourceKulievTitle": "Перевод смыслов (Эльмир Кулиев)",
+  "sourceKulievDesc": "Распространяется свободно. Текст перевода смыслов предоставлен для некоммерческого использования и бесплатного распространения.",
+  "sourceAbuAdelTitle": "Перевод смыслов (Абу Адель)",
+  "sourceAbuAdelDesc": "Распространяется свободно. Текст перевода смыслов предоставлен для некоммерческого использования и бесплатного распространения.",
+  "sourceTafsirTitle": "Тафсир (Абдур-Рахман ас-Саади)",
+  "sourceTafsirDesc": "Толкование Священного Корана. Текст распространяется свободно в образовательных и некоммерческих целях.",
+  "sourceFontTitle": "Шрифт (Amiri Quran)",
+  "sourceFontDesc": "Используется открытый арабский шрифт Amiri под лицензией SIL Open Font License (OFL).",
+  "sourceMorphologyTitle": "Пословный разбор и морфология",
+  "sourceMorphologyDesc": "Арабская грамматика и пословные значения: Quranic Arabic Corpus (corpus.quran.com, автор Kais Dukes) под лицензией GNU GPL.",
+  "sourceAudioTitle": "Аудио чтецов (EveryAyah)",
+  "sourceAudioDesc": "Записи чтения Корана загружаются по сети с everyayah.com. Права на записи принадлежат чтецам и издателям; приложение не содержит аудио в комплекте и использует его только для прослушивания.",
+  "sourceOnlineApiTitle": "Онлайн-переводы и тайминги слов (Quran.com)",
+  "sourceOnlineApiDesc": "Дополнительные переводы (Saheeh International, таджикский, узбекский, азербайджанский) и пословные тайминги чтецов загружаются через открытый API Quran.com / Quran Foundation и кэшируются на устройстве.",
+  "sourceSpeechTitle": "Распознавание речи (Whisper)",
+  "sourceSpeechDesc": "Тренажёр чтения отправляет запись на сервер с моделью OpenAI Whisper (лицензия MIT), размещённый на Modal. Запись удаляется сразу после обработки.",
+  "viewLicenses": "Лицензии открытого ПО",
+
+  "skip": "Пропустить",
+  "next": "Далее",
+  "startReading": "Бисмилля, начать чтение",
+  "reminderTitle": "Напоминание верующим",
+  "reminderAyah": "«Это — благословенное Писание, которое Мы ниспослали тебе, дабы они размышляли над его аятами и дабы обладающие разумом внимали назиданию.»",
+  "reminderRef": "Сура 38 «Сад», аят 29",
+  "purityStatement": "Только Книга Аллаха. Без рекламы, лент, сбора данных и отвлекающих факторов. Работает офлайн (кроме голосовой проверки чтения).",
+  "readingModesTitle": "РЕЖИМЫ ЧТЕНИЯ",
+  "readingModesSubtitle": "Выберите привычный способ чтения",
+  "flowModeTitle": "Плавный свиток (Flow)",
+  "flowModeBadge": "Построчный режим",
+  "flowModeDesc": "Удобно для ежедневного вдумчивого чтения. Включает плавную автопрокрутку без рук, пословный разбор арабских корней и тафсир ас-Саади.",
+  "mushafModeTitle": "Классический Мусхаф (604 стр.)",
+  "mushafModeBadge": "Страничный режим",
+  "mushafModeDesc": "Традиционная вёрстка страницы в страницу (Мединский мусхаф). Идеально подходит для заучивания (хифз) и повторения.",
+  "featuresTitle": "ВОЗМОЖНОСТИ",
+  "featuresSubtitle": "Всё для вашего удобства",
+  "themesFeatureTitle": "4 благородные темы и ночной фильтр",
+  "themesFeatureBadge": "Оформление",
+  "themesFeatureDesc": "Пергамент, Изумруд, глубокий OLED и Светлая тема с бережным янтарным фильтром для защиты глаз в темноте.",
+  "searchFeatureTitle": "Умный поиск по всей Книге",
+  "searchFeatureBadge": "Мгновенный поиск",
+  "searchFeatureDesc": "Ищите по арабскому тексту (с огласовками и без), переводам, названиям сур или точным ссылкам (например, 2:255).",
+
+  "khatmGoalTitle": "Цель чтения (Хатм)",
+  "khatmDaysQuestion": "За сколько дней вы планируете прочитать весь Коран (604 страницы)?",
+  "daysCount": "{days} дней",
+  "@daysCount": {
+    "placeholders": {
+      "days": {"type": "int"}
+    }
+  },
+  "dailyGoalPages": "Цель: {pages} стр. в день",
+  "@dailyGoalPages": {
+    "placeholders": {
+      "pages": {"type": "int"}
+    }
+  },
+  "cancel": "Отмена",
+  "startKhatm": "Начать Хатм",
+  "khatmPlanTitle": "Хатм за {days} дней",
+  "@khatmPlanTitle": {
+    "placeholders": {
+      "days": {"type": "int"}
+    }
+  },
+  "setKhatmGoal": "Поставить цель чтения (Хатм)",
+  "calculateDailyNorm": "Рассчитайте ежедневную норму страниц",
+  "editGoal": "Изменить цель",
+  "resetGoal": "Завершить / сбросить",
+  "khatmPagesRead": "Прочитано {completed} из 604 стр.",
+  "@khatmPagesRead": {
+    "placeholders": {
+      "completed": {"type": "int"}
+    }
+  },
+  "khatmDailyNormRemain": "Норма: {daily} стр./день · Осталось: {remaining} дн.",
+  "@khatmDailyNormRemain": {
+    "placeholders": {
+      "daily": {"type": "int"},
+      "remaining": {"type": "int"}
+    }
+  },
+
+  "bookmarkTitle": "Закладка: Сура {surah}:{ayah}",
+  "@bookmarkTitle": {
+    "placeholders": {
+      "surah": {"type": "int"},
+      "ayah": {"type": "int"}
+    }
+  },
+  "delete": "Удалить",
+  "folderCollection": "Папка / Коллекция:",
+  "personalNote": "Личная заметка (необязательно):",
+  "personalNoteHint": "Например: Заучить на этой неделе...",
+  "saveChanges": "Сохранить изменения",
+  "addToBookmarks": "Добавить в закладки",
+
+  "selectReciter": "Выберите чтеца (Тилява)",
+  "playbackSpeed": "Скорость воспроизведения",
+  "downloadSurahOffline": "Скачать суру для офлайн чтения",
+  "speed": "Скорость",
+  "repeatOn": "Повтор аята включен",
+  "repeatOff": "Повтор аята выключен",
+  "closePlayer": "Закрыть плеер",
+  "prevAyah": "Предыдущий аят",
+  "nextAyah": "Следующий аят",
+  "ayahNumber": "Аят {number}",
+  "@ayahNumber": {
+    "placeholders": {
+      "number": {"type": "int"}
+    }
+  },
+
+  "hifzTrainerTitle": "Проверка чтения (Хифз)",
+  "hifzAyahInfo": "Сура {surahId}. {surahName} · Аят {ayahNum}",
+  "@hifzAyahInfo": {
+    "placeholders": {
+      "surahId": {"type": "int"},
+      "surahName": {"type": "String"},
+      "ayahNum": {"type": "int"}
+    }
+  },
+  "tajweedRules": "Правила Таджвида этого аята",
+  "byMemory": "По памяти",
+  "withText": "С текстом",
+  "continuousMode": "Сплошное чтение",
+  "oneAyahMode": "Один аят",
+  "continuousModeDesc": "Авто-переход к следующему аяту",
+  "listenToAyah": "Послушать аят",
+  "perfectReading": "МашаАллах! Аят прочитан",
+  "readingAccuracy": "Точность: {accuracy}% ({correct}/{total} слов)",
+  "@readingAccuracy": {
+    "placeholders": {
+      "accuracy": {"type": "int"},
+      "correct": {"type": "int"},
+      "total": {"type": "int"}
+    }
+  },
+  "aiListening": "Слышу: \"{text}\"",
+  "@aiListening": {
+    "placeholders": {
+      "text": {"type": "String"}
+    }
+  },
+  "startOver": "Начать заново",
+  "stopListening": "Остановить",
+  "startListening": "Читать",
+  "readingInstructions": "Нажмите на микрофон и начните читать аят на арабском",
+  "listeningInProgress": "Слушаю вас...",
+  "processingAudio": "Обработка...",
+  "micError": "Ошибка микрофона. Убедитесь, что дано разрешение.",
+  "recitationDisclaimerTitle": "Важное предупреждение",
+  "recitationDisclaimerBody": "Автоматическая проверка чтения может ошибаться и не гарантирует 100% точность. Используйте её только как вспомогательный инструмент. Она не заменяет обучение и проверку чтения у квалифицированного шейха, кари или преподавателя таджвида. Не изучайте произношение, опираясь только на результат приложения. Для распознавания ваша аудиозапись будет отправлена на внешний сервер.",
+  "recitationDisclaimerAccept": "Понимаю, продолжить"
+}
