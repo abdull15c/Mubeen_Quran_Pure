@@ -68,6 +68,7 @@ class _QuranHomeScreenState extends State<QuranHomeScreen> {
   void _selectTab(int index) {
     FocusManager.instance.primaryFocus?.unfocus();
     ++_openGeneration;
+    widget.controller.setImmersiveReading(false);
     if (index == _selectedIndex) return;
     setState(() => _selectedIndex = index);
   }
@@ -107,9 +108,14 @@ class _QuranHomeScreenState extends State<QuranHomeScreen> {
       ),
     ];
 
+    final bool hideNavigation =
+        _selectedIndex == 0 && widget.controller.immersiveReading;
+
     return Scaffold(
       body: IndexedStack(index: _selectedIndex, children: screens),
-      bottomNavigationBar: NavigationBar(
+      bottomNavigationBar: hideNavigation
+          ? null
+          : NavigationBar(
         selectedIndex: _selectedIndex,
         onDestinationSelected: _selectTab,
         destinations: <NavigationDestination>[

@@ -499,7 +499,13 @@ class FlowReaderState extends State<FlowReader>
               children: <Widget>[
                 GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  onTap: _autoScrolling ? _toggleAutoScroll : null,
+                  onTap: () {
+                    if (_autoScrolling) {
+                      _toggleAutoScroll();
+                      return;
+                    }
+                    widget.controller.toggleImmersiveReading();
+                  },
                   child: NotificationListener<ScrollNotification>(
                     onNotification: (notification) =>
                         _handleScroll(notification, ayahs),

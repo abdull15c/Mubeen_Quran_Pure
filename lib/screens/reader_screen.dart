@@ -177,87 +177,96 @@ class ReaderScreenState extends State<ReaderScreen>
     widget.controller.setReaderMode(mode);
   }
 
-  @override
-  Widget build(BuildContext context) {
-    final AppLocalizations l = AppLocalizations.of(context)!;
-    return Scaffold(
-      appBar: AppBar(
-        titleSpacing: 16,
-        title: const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text('MUBEEN', style: TextStyle(fontSize: 16, letterSpacing: 2.4)),
-            Text(
-              'QURAN PURE',
-              style: TextStyle(fontSize: 9, letterSpacing: 2.8),
-            ),
-          ],
-        ),
-        actions: <Widget>[
-          if (_mode == ReaderMode.flow)
-            IconButton(
-              tooltip: l.jumpToAyah,
-              icon: const Icon(Icons.tag_rounded, size: 22),
-              onPressed: () => _flowReaderKey.currentState?.showAyahPicker(),
-            ),
-          Padding(
-            padding: const EdgeInsets.only(right: 10),
-            child: SegmentedButton<ReaderMode>(
-              showSelectedIcon: false,
-              segments: <ButtonSegment<ReaderMode>>[
-                ButtonSegment<ReaderMode>(
-                  value: ReaderMode.flow,
-                  icon: const Icon(Icons.view_agenda_outlined, size: 18),
-                  tooltip: l.verticalReading,
-                ),
-                ButtonSegment<ReaderMode>(
-                  value: ReaderMode.mushaf,
-                  icon: const Icon(Icons.auto_stories_outlined, size: 18),
-                  tooltip: l.quranPages,
-                ),
-              ],
-              selected: <ReaderMode>{_mode},
-              onSelectionChanged: (Set<ReaderMode> selected) {
-                _setMode(selected.single);
-              },
-            ),
+  PreferredSizeWidget _buildAppBar(AppLocalizations l) {
+    return AppBar(
+      titleSpacing: 16,
+      title: const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text('MUBEEN', style: TextStyle(fontSize: 16, letterSpacing: 2.4)),
+          Text(
+            'QURAN PURE',
+            style: TextStyle(fontSize: 9, letterSpacing: 2.8),
           ),
         ],
       ),
-      body: AnimatedSwitcher(
-        duration: const Duration(milliseconds: 220),
-        child: _mode == ReaderMode.flow
-            ? FlowReader(
-                key: _flowReaderKey,
-                controller: widget.controller,
-                repository: widget.repository,
-                audioService: widget.audioService,
-                translationManager: widget.translationManager,
-                bookmarkController: widget.bookmarkController,
-                surahId: _surahId,
-                targetAyah: _targetAyah,
-                onLocationChanged: (ReaderLocation location) {
-                  _page = location.page;
-                  _onPageDwellForKhatm(location.page);
-                },
-              )
-            : MushafReader(
-                key: ValueKey<int>(_page),
-                controller: widget.controller,
-                repository: widget.repository,
-                initialPage: _page,
-                onPageChanged: (int page) {
-                  _page = page;
-                  _onPageDwellForKhatm(page);
-                },
-                onLocationChanged: (ReaderLocation location) {
-                  _surahId = location.surahId;
-                  _targetAyah = location.ayahNumber;
-                  _page = location.page;
-                  _onPageDwellForKhatm(location.page);
-                },
+      actions: <Widget>[
+        if (_mode == ReaderMode.flow)
+          IconButton(
+            tooltip: l.jumpToAyah,
+            icon: const Icon(Icons.tag_rounded, size: 22),
+            onPressed: () => _flowReaderKey.currentState?.showAyahPicker(),
+          ),
+        Padding(
+          padding: const EdgeInsets.only(right: 10),
+          child: SegmentedButton<ReaderMode>(
+            showSelectedIcon: false,
+            segments: <ButtonSegment<ReaderMode>>[
+              ButtonSegment<ReaderMode>(
+                value: ReaderMode.flow,
+                icon: const Icon(Icons.view_agenda_outlined, size: 18),
+                tooltip: l.verticalReading,
               ),
-      ),
+              ButtonSegment<ReaderMode>(
+                value: ReaderMode.mushaf,
+                icon: const Icon(Icons.auto_stories_outlined, size: 18),
+                tooltip: l.quranPages,
+              ),
+            ],
+            selected: <ReaderMode>{_mode},
+            onSelectionChanged: (Set<ReaderMode> selected) {
+              _setMode(selected.single);
+            },
+          ),
+        ),
+      ],
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations l = AppLocalizations.of(context)!;
+    final bool immersive = widget.controller.immersiveReading;
+    final Widget reader = AnimatedSwitcher(
+      duration: const Duration(milliseconds: 220),
+      child: _mode == ReaderMode.flow
+          ? FlowReader(
+              key: _flowReaderKey,
+              controller: widget.controller,
+              repository: widget.repository,
+              audioService: widget.audioService,
+              translationManager: widget.translationManager,
+              bookmarkController: widget.bookmarkController,
+              surahId: _surahId,
+              targetAyah: _targetAyah,
+              onLocationChanged: (ReaderLocation location) {
+                _page = location.page;
+                _onPageDwellForKhatm(location.page);
+              },
+            )
+          : MushafReader(
+              key: ValueKey<int>(_page),
+              controller: widget.controller,
+              repository: widget.repository,
+              initialPage: _page,
+              onPageChanged: (int page) {
+                _page = page;
+                _onPageDwellForKhatm(page);
+              },
+              onLocationChanged: (ReaderLocation location) {
+                _surahId = location.surahId;
+                _targetAyah = location.ayahNumber;
+                _page = location.page;
+                _onPageDwellForKhatm(location.page);
+              },
+            ),
+    );
+    // Focused reading hides the app bar; a tap on the text brings it back
+    // (see FlowReader and MushafReader). The widget tree keeps the same shape
+    // in both states so the readers keep their scroll position.
+    return Scaffold(
+      appBar: immersive ? null : _buildAppBar(l),
+      body: SafeArea(top: immersive, bottom: false, child: reader),
     );
   }
 }

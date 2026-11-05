@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:mubeen_quran_pure/l10n/app_localizations.dart';
@@ -14,6 +12,7 @@ import '../../data/translation_manager.dart';
 import '../../models/quran_models.dart';
 import '../../theme/app_theme.dart';
 import '../recitation_trainer_sheet.dart';
+import 'quran_text.dart';
 import 'reader_widgets.dart';
 
 class AyahCard extends StatelessWidget {
@@ -56,24 +55,6 @@ class AyahCard extends StatelessWidget {
         final bool bookmarked = bookmarkController.isBookmarked(ayah.id);
 
         final List<Widget> actions = <Widget>[
-          IconButton(
-            tooltip: l.recitationCheck,
-            visualDensity: VisualDensity.compact,
-            onPressed: () {
-              HapticFeedback.lightImpact().ignore();
-              RecitationTrainerSheet.show(
-                context,
-                surah: surah,
-                ayah: ayah,
-                audioService: audioService,
-              );
-            },
-            icon: const Icon(
-              Icons.mic_none_rounded,
-              size: 20,
-              color: Color(0xFFE3C47D),
-            ),
-          ),
           IconButton(
             tooltip: isPlayingThisAyah ? l.pause : l.listenAyah,
             visualDensity: VisualDensity.compact,
@@ -120,24 +101,6 @@ class AyahCard extends StatelessWidget {
               ),
             ),
           ),
-          IconButton(
-            tooltip: l.copyAyah,
-            visualDensity: VisualDensity.compact,
-            onPressed: () => unawaited(_copyAyah(context, translation)),
-            icon: const Icon(Icons.copy_rounded, size: 19),
-          ),
-          IconButton(
-            tooltip: l.wordAnalysis,
-            visualDensity: VisualDensity.compact,
-            onPressed: () => _showWords(context),
-            icon: const Icon(Icons.translate_rounded, size: 20),
-          ),
-          IconButton(
-            tooltip: l.tafsirSaadi,
-            visualDensity: VisualDensity.compact,
-            onPressed: () => _showTafsir(context),
-            icon: const Icon(Icons.notes_rounded, size: 20),
-          ),
           InkWell(
             borderRadius: BorderRadius.circular(16),
             onLongPress: () {
@@ -175,7 +138,14 @@ class AyahCard extends StatelessWidget {
               ),
             ),
           ),
+          IconButton(
+            tooltip: MaterialLocalizations.of(context).moreButtonTooltip,
+            visualDensity: VisualDensity.compact,
+            onPressed: () => _showMoreActions(context, translation),
+            icon: const Icon(Icons.more_horiz_rounded, size: 22),
+          ),
         ];
+        final bool immersive = controller.immersiveReading;
 
         return Container(
           decoration: BoxDecoration(
@@ -222,7 +192,10 @@ class AyahCard extends StatelessWidget {
                               ],
                             ],
                           );
-                          if (constraints.maxWidth < 390) {
+                          if (immersive) {
+                            return identity;
+                          }
+                          if (constraints.maxWidth < 330) {
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: <Widget>[
@@ -250,59 +223,10 @@ class AyahCard extends StatelessWidget {
                       final int? activeWordIdx = isPlayingThisAyah
                           ? audioService.karaoke.activeWordIndex
                           : null;
-
-                      // Split by spaces. Extra spaces are ignored.
-                      final List<String> words = ayah.text.split(
-                        RegExp(r'\s+'),
-                      );
-
-                      return Wrap(
-                        alignment: WrapAlignment.end,
-                        textDirection: TextDirection.rtl,
-                        spacing: 6,
-                        runSpacing: 4,
-                        children: List<Widget>.generate(words.length, (
-                          int index,
-                        ) {
-                          // The QF API word timings include the Uthmani words.
-                          // It typically matches space-split output for Uthmani.
-                          // Determine if this word is active.
-                          final bool isActive = activeWordIdx == index;
-                          final bool isPast =
-                              activeWordIdx != null && index < activeWordIdx;
-
-                          // Color logic
-                          Color targetColor = context.quranColors.ink;
-                          if (isActive) {
-                            targetColor = context.quranColors.gold;
-                          } else if (isPast) {
-                            targetColor = context.quranColors.ink.withValues(
-                              alpha: 0.6,
-                            );
-                          }
-
-                          return AnimatedDefaultTextStyle(
-                            duration: const Duration(milliseconds: 150),
-                            style: TextStyle(
-                              fontFamily: 'AmiriQuran',
-                              fontSize: isActive
-                                  ? controller.arabicFontSize * 1.05
-                                  : controller.arabicFontSize,
-                              height: 1.95,
-                              color: targetColor,
-                              shadows: isActive
-                                  ? <Shadow>[
-                                      Shadow(
-                                        color: context.quranColors.gold
-                                            .withValues(alpha: 0.4),
-                                        blurRadius: 12,
-                                      ),
-                                    ]
-                                  : null,
-                            ),
-                            child: Text(words[index]),
-                          );
-                        }),
+                      return QuranAyahText(
+                        text: ayah.text,
+                        fontSize: controller.arabicFontSize,
+                        activeWordIndex: activeWordIdx,
                       );
                     },
                   ),
@@ -325,6 +249,95 @@ class AyahCard extends StatelessWidget {
         );
       },
     );
+  }
+
+  /// Secondary actions live in a sheet so the card itself stays quiet: only
+  /// play, bookmark and this menu are shown inline.
+  Future<void> _showMoreActions(
+    BuildContext context,
+    String? translation,
+  ) async {
+    HapticFeedback.selectionClick().ignore();
+    final AppLocalizations l = AppLocalizations.of(context)!;
+    final QuranThemeColors colors = context.quranColors;
+    final _AyahAction? action = await showModalBottomSheet<_AyahAction>(
+      context: context,
+      builder: (BuildContext sheetContext) {
+        Widget tile(IconData icon, String label, _AyahAction value) {
+          return ListTile(
+            leading: Icon(icon, color: colors.gold),
+            title: Text(label),
+            onTap: () => Navigator.of(sheetContext).pop(value),
+          );
+        }
+
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 4, 20, 8),
+                child: Row(
+                  children: <Widget>[
+                    AyahNumber(number: ayah.number),
+                    const SizedBox(width: 10),
+                    Text(
+                      '${surah.nameRussian} · ${ayah.surah}:${ayah.number}',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        color: colors.gold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const Divider(height: 1),
+              tile(Icons.notes_rounded, l.tafsirSaadi, _AyahAction.tafsir),
+              tile(
+                Icons.translate_rounded,
+                l.wordAnalysis,
+                _AyahAction.words,
+              ),
+              tile(
+                Icons.mic_none_rounded,
+                l.recitationCheck,
+                _AyahAction.recite,
+              ),
+              tile(Icons.copy_rounded, l.copyAyah, _AyahAction.copy),
+              tile(
+                Icons.bookmark_add_outlined,
+                l.addToBookmarks,
+                _AyahAction.bookmarkEditor,
+              ),
+              const SizedBox(height: 8),
+            ],
+          ),
+        );
+      },
+    );
+    if (action == null || !context.mounted) return;
+    switch (action) {
+      case _AyahAction.tafsir:
+        await _showTafsir(context);
+      case _AyahAction.words:
+        await _showWords(context);
+      case _AyahAction.recite:
+        await RecitationTrainerSheet.show(
+          context,
+          surah: surah,
+          ayah: ayah,
+          audioService: audioService,
+        );
+      case _AyahAction.copy:
+        await _copyAyah(context, translation);
+      case _AyahAction.bookmarkEditor:
+        await BookmarkEditorSheet.show(
+          context,
+          ayah: ayah,
+          surah: surah,
+          bookmarkController: bookmarkController,
+        );
+    }
   }
 
   Future<void> _copyAyah(BuildContext context, String? translation) async {
@@ -520,3 +533,5 @@ class AyahCard extends StatelessWidget {
     );
   }
 }
+
+enum _AyahAction { tafsir, words, recite, copy, bookmarkEditor }

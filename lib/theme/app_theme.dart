@@ -58,7 +58,8 @@ ThemeData buildAppTheme(AppThemeStyle style) {
     AppThemeStyle.parchment => (
       Brightness.light,
       const QuranThemeColors(
-        gold: Color(0xFFA77A2E),
+        // 4.8:1 on paper; the previous A77A2E was 3.2:1.
+        gold: Color(0xFF85601F),
         deepGreen: Color(0xFF163D35),
         paper: Color(0xFFF4EAD5),
         ink: Color(0xFF29231B),
@@ -91,7 +92,8 @@ ThemeData buildAppTheme(AppThemeStyle style) {
     AppThemeStyle.light => (
       Brightness.light,
       const QuranThemeColors(
-        gold: Color(0xFF9A742E),
+        // 5.7:1 on paper; the previous 9A742E was 4.1:1.
+        gold: Color(0xFF7F5E1C),
         deepGreen: Color(0xFF18443A),
         paper: Color(0xFFFAF9F5),
         ink: Color(0xFF202421),

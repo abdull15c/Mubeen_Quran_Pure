@@ -60,8 +60,22 @@ class AppController extends ChangeNotifier {
   Set<int> _bookmarkedAyahIds = <int>{};
   List<String> _recentSearches = <String>[];
   String _localeCode = 'ru';
+  bool _immersiveReading = false;
 
   bool get initialized => _initialized;
+
+  /// Focused reading: the reader hides its app bar, the bottom navigation and
+  /// per-ayah actions until the user taps the text again. Not persisted.
+  bool get immersiveReading => _immersiveReading;
+
+  void setImmersiveReading(bool value) {
+    if (_immersiveReading == value) return;
+    _immersiveReading = value;
+    notifyListeners();
+  }
+
+  void toggleImmersiveReading() => setImmersiveReading(!_immersiveReading);
+
   bool get onboardingCompleted => _onboardingCompleted;
   bool get readerTipDismissed => _readerTipDismissed;
   bool get eyeCareEnabled => _eyeCareEnabled;

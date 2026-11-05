@@ -9,6 +9,7 @@ import '../../data/quran_repository.dart';
 import '../../models/quran_models.dart';
 import '../../theme/app_theme.dart';
 import '../../theme/islamic_ornament_painters.dart';
+import 'quran_text.dart';
 import 'reader_utils.dart';
 import 'reader_widgets.dart';
 
@@ -278,11 +279,15 @@ class _MushafPageState extends State<_MushafPage> {
                     OrnamentLine(label: '${widget.page}', juz: ayahs.first.juz),
                     const SizedBox(height: 12),
                     Expanded(
-                      child: SingleChildScrollView(
-                        child: _MushafPageContent(
-                          ayahs: ayahs,
-                          surahs: surahs,
-                          fontSize: widget.controller.arabicFontSize * 0.78,
+                      child: GestureDetector(
+                        behavior: HitTestBehavior.translucent,
+                        onTap: widget.controller.toggleImmersiveReading,
+                        child: SingleChildScrollView(
+                          child: _MushafPageContent(
+                            ayahs: ayahs,
+                            surahs: surahs,
+                            fontSize: widget.controller.arabicFontSize * 0.78,
+                          ),
                         ),
                       ),
                     ),
@@ -346,7 +351,13 @@ class _MushafPageContent extends StatelessWidget {
         }
       }
       ayahSpans.addAll(<InlineSpan>[
-        TextSpan(text: '${ayah.text} '),
+        ...buildQuranTextSpans(
+          ayah.text,
+          markStyle: TextStyle(
+            color: context.quranColors.gold.withValues(alpha: 0.78),
+          ),
+        ),
+        const TextSpan(text: ' '),
         TextSpan(
           text: '۝${toArabicDigits(ayah.number)} ',
           style: TextStyle(
