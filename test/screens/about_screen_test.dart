@@ -33,6 +33,8 @@ void main() {
         find.textContaining('Пословный разбор и морфология'),
         findsOneWidget,
       );
+      expect(find.textContaining('KFGQPC'), findsWidgets);
+      expect(find.textContaining('PT Serif'), findsWidgets);
       expect(find.textContaining('EveryAyah'), findsWidgets);
       expect(find.textContaining('Quran.com'), findsWidgets);
       expect(find.textContaining('Whisper'), findsWidgets);

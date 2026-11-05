@@ -83,19 +83,22 @@ class QuranAyahText extends StatelessWidget {
     required this.text,
     required this.fontSize,
     this.activeWordIndex,
-    this.height = 1.95,
+    this.height,
     this.textAlign = TextAlign.justify,
   });
 
   final String text;
   final double fontSize;
   final int? activeWordIndex;
-  final double height;
+
+  /// Line height multiplier; defaults to the active typeface's own value.
+  final double? height;
   final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
     final QuranThemeColors colors = context.quranColors;
+    final QuranTypography type = context.quranType;
     return Text.rich(
       TextSpan(
         children: buildQuranTextSpans(
@@ -114,9 +117,9 @@ class QuranAyahText extends StatelessWidget {
       textDirection: TextDirection.rtl,
       textAlign: textAlign,
       style: TextStyle(
-        fontFamily: 'AmiriQuran',
+        fontFamily: type.arabicFamily,
         fontSize: fontSize,
-        height: height,
+        height: height ?? type.arabicLineHeight,
         color: colors.ink,
       ),
     );

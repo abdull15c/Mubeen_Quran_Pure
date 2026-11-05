@@ -325,9 +325,9 @@ class _MushafPageContent extends StatelessWidget {
           textDirection: TextDirection.rtl,
           textAlign: TextAlign.justify,
           style: TextStyle(
-            fontFamily: 'AmiriQuran',
+            fontFamily: context.quranType.arabicFamily,
             fontSize: fontSize,
-            height: 2.05,
+            height: context.quranType.arabicLineHeight + 0.1,
             color: context.quranColors.ink,
           ),
         ),
@@ -416,9 +416,9 @@ class _MushafSurahHeading extends StatelessWidget {
                   : 'سورة $surahId',
               textDirection: TextDirection.rtl,
               textAlign: TextAlign.center,
-              style: const TextStyle(
+              style: TextStyle(
                 color: Color(0xFFE3C47D),
-                fontFamily: 'AmiriQuran',
+                fontFamily: context.quranType.arabicFamily,
                 fontSize: 24,
                 height: 1.3,
                 fontWeight: FontWeight.bold,
@@ -434,7 +434,7 @@ class _MushafSurahHeading extends StatelessWidget {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: context.quranColors.ink,
-                  fontFamily: 'AmiriQuran',
+                  fontFamily: context.quranType.arabicFamily,
                   fontSize: 21,
                   height: 1.7,
                 ),

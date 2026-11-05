@@ -410,6 +410,32 @@ class AppLocalizationsEn extends AppLocalizations {
       'The recitation trainer sends your recording to a server running OpenAI Whisper (MIT license) hosted on Modal. The recording is deleted right after processing.';
 
   @override
+  String get sectionArabicFont => 'Arabic font';
+
+  @override
+  String get fontHafs => 'Uthmani Hafs (Madinah Mushaf)';
+
+  @override
+  String get fontHafsSmart => 'Hafs Smart (for screens)';
+
+  @override
+  String get fontAmiri => 'Amiri Quran (classic Naskh)';
+
+  @override
+  String get sourceFontKfgqpcTitle => 'KFGQPC Hafs fonts';
+
+  @override
+  String get sourceFontKfgqpcDesc =>
+      'The “KFGQPC HAFS Uthmanic Script” and “KFGQPC Hafs Smart” fonts by the King Fahd Glorious Quran Printing Complex (Madinah). Their license permits free use, copying and distribution without modification; the license text is included in the app.';
+
+  @override
+  String get sourceFontSerifTitle => 'Translation font (PT Serif)';
+
+  @override
+  String get sourceFontSerifDesc =>
+      'Translations and tafsir are set in PT Serif by ParaType under the SIL Open Font License.';
+
+  @override
   String get viewLicenses => 'Open Source Licenses';
 
   @override

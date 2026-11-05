@@ -9,6 +9,9 @@ enum AppThemeStyle { parchment, oled, emerald, light }
 
 enum ReaderMode { flow, mushaf }
 
+/// Bundled Quran typefaces; see `lib/theme/quran_fonts.dart` for metrics.
+enum QuranFont { hafs, hafsSmart, amiri }
+
 class AppController extends ChangeNotifier {
   static const String _eyeCareEnabledKey = 'eye_care_enabled';
   static const String _themeStyleKey = 'theme_style';
@@ -28,6 +31,7 @@ class AppController extends ChangeNotifier {
   static const String _readerTipDismissedKey = 'reader_tip_dismissed';
   static const String _recentSearchesKey = 'recent_searches';
   static const String _localeKey = 'ui_locale';
+  static const String _arabicFontKey = 'arabic_font';
 
   /// Supported UI locales.
   static const List<String> supportedLocaleCodes = <String>[
@@ -60,9 +64,11 @@ class AppController extends ChangeNotifier {
   Set<int> _bookmarkedAyahIds = <int>{};
   List<String> _recentSearches = <String>[];
   String _localeCode = 'ru';
+  QuranFont _arabicFont = QuranFont.hafs;
   bool _immersiveReading = false;
 
   bool get initialized => _initialized;
+  QuranFont get arabicFont => _arabicFont;
 
   /// Focused reading: the reader hides its app bar, the bottom navigation and
   /// per-ayah actions until the user taps the text again. Not persisted.
@@ -124,6 +130,11 @@ class AppController extends ChangeNotifier {
         preferences.get(_readerModeKey),
         ReaderMode.values,
         ReaderMode.flow,
+      );
+      _arabicFont = _readEnum(
+        preferences.get(_arabicFontKey),
+        QuranFont.values,
+        QuranFont.hafs,
       );
 
       final Object? savedTranslatorKey = preferences.get(_translatorKeyKey);
@@ -249,6 +260,19 @@ class AppController extends ChangeNotifier {
     await _persist(
       (SharedPreferences preferences) =>
           preferences.setString(_themeStyleKey, value.name),
+    );
+  }
+
+  Future<void> setArabicFont(QuranFont value) async {
+    await _initialization;
+    if (_arabicFont == value) {
+      return;
+    }
+    _arabicFont = value;
+    notifyListeners();
+    await _persist(
+      (SharedPreferences preferences) =>
+          preferences.setString(_arabicFontKey, value.name),
     );
   }
 

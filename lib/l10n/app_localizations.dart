@@ -826,6 +826,54 @@ abstract class AppLocalizations {
   /// **'Тренажёр чтения отправляет запись на сервер с моделью OpenAI Whisper (лицензия MIT), размещённый на Modal. Запись удаляется сразу после обработки.'**
   String get sourceSpeechDesc;
 
+  /// No description provided for @sectionArabicFont.
+  ///
+  /// In ru, this message translates to:
+  /// **'Арабский шрифт'**
+  String get sectionArabicFont;
+
+  /// No description provided for @fontHafs.
+  ///
+  /// In ru, this message translates to:
+  /// **'Усмани Хафс (мединский мусхаф)'**
+  String get fontHafs;
+
+  /// No description provided for @fontHafsSmart.
+  ///
+  /// In ru, this message translates to:
+  /// **'Хафс Smart (для экрана)'**
+  String get fontHafsSmart;
+
+  /// No description provided for @fontAmiri.
+  ///
+  /// In ru, this message translates to:
+  /// **'Amiri Quran (классический насх)'**
+  String get fontAmiri;
+
+  /// No description provided for @sourceFontKfgqpcTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шрифты KFGQPC Хафс'**
+  String get sourceFontKfgqpcTitle;
+
+  /// No description provided for @sourceFontKfgqpcDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шрифты «KFGQPC HAFS Uthmanic Script» и «KFGQPC Hafs Smart» Комплекса имени Короля Фахда по изданию Корана (Медина). Лицензия разрешает бесплатное использование, копирование и распространение без изменений; текст лицензии включён в приложение.'**
+  String get sourceFontKfgqpcDesc;
+
+  /// No description provided for @sourceFontSerifTitle.
+  ///
+  /// In ru, this message translates to:
+  /// **'Шрифт перевода (PT Serif)'**
+  String get sourceFontSerifTitle;
+
+  /// No description provided for @sourceFontSerifDesc.
+  ///
+  /// In ru, this message translates to:
+  /// **'Переводы и тафсир набраны шрифтом PT Serif компании ParaType под лицензией SIL Open Font License.'**
+  String get sourceFontSerifDesc;
+
   /// No description provided for @viewLicenses.
   ///
   /// In ru, this message translates to:

@@ -39,6 +39,10 @@ class SettingsScreen extends StatelessWidget {
               const SizedBox(height: 10),
               _ThemePicker(controller: controller),
               const SizedBox(height: 24),
+              _SectionTitle(l.sectionArabicFont),
+              const SizedBox(height: 10),
+              _ArabicFontPicker(controller: controller),
+              const SizedBox(height: 24),
               _SectionTitle(l.sectionTranslation),
               const SizedBox(height: 10),
               Card(
@@ -79,7 +83,7 @@ class SettingsScreen extends StatelessWidget {
                         textDirection: TextDirection.rtl,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontFamily: 'AmiriQuran',
+                          fontFamily: context.quranType.arabicFamily,
                           fontSize: controller.arabicFontSize,
                           height: 1.7,
                         ),
@@ -489,11 +493,11 @@ class _ThemePicker extends StatelessWidget {
                         border: Border.all(color: const Color(0x40777777)),
                       ),
                       alignment: Alignment.center,
-                      child: const Text(
+                      child: Text(
                         'الله',
                         style: TextStyle(
                           color: Color(0xFFB28A43),
-                          fontFamily: 'AmiriQuran',
+                          fontFamily: context.quranType.arabicFamily,
                           fontSize: 21,
                         ),
                       ),
@@ -506,6 +510,54 @@ class _ThemePicker extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+}
+
+class _ArabicFontPicker extends StatelessWidget {
+  const _ArabicFontPicker({required this.controller});
+
+  final AppController controller;
+
+  static const String _sample = 'بِسْمِ ٱللَّهِ ٱلرَّحْمَـٰنِ ٱلرَّحِيمِ';
+
+  @override
+  Widget build(BuildContext context) {
+    final AppLocalizations l = AppLocalizations.of(context)!;
+    final List<(QuranFont, String)> fonts = <(QuranFont, String)>[
+      (QuranFont.hafs, l.fontHafs),
+      (QuranFont.hafsSmart, l.fontHafsSmart),
+      (QuranFont.amiri, l.fontAmiri),
+    ];
+    return Card(
+      child: RadioGroup<QuranFont>(
+        groupValue: controller.arabicFont,
+        onChanged: (QuranFont? value) {
+          if (value != null) controller.setArabicFont(value);
+        },
+        child: Column(
+          children: <Widget>[
+            for (final (QuranFont font, String label) in fonts)
+              RadioListTile<QuranFont>(
+                value: font,
+                title: Text(label),
+                subtitle: Padding(
+                  padding: const EdgeInsets.only(top: 4),
+                  child: Text(
+                    _sample,
+                    textDirection: TextDirection.rtl,
+                    style: TextStyle(
+                      fontFamily: font.spec.family,
+                      fontSize: 22,
+                      height: font.spec.lineHeight,
+                      color: context.quranColors.ink,
+                    ),
+                  ),
+                ),
+              ),
+          ],
+        ),
       ),
     );
   }

@@ -50,7 +50,7 @@ class SurahHeader extends StatelessWidget {
               textDirection: TextDirection.rtl,
               style: TextStyle(
                 color: context.quranColors.gold,
-                fontFamily: 'AmiriQuran',
+                fontFamily: context.quranType.arabicFamily,
                 fontSize: 34,
                 height: 1.3,
                 shadows: const <Shadow>[
@@ -201,9 +201,9 @@ class SurahHeader extends StatelessWidget {
                 bismillah,
                 textDirection: TextDirection.rtl,
                 textAlign: TextAlign.center,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Color(0xFFE3C47D),
-                  fontFamily: 'AmiriQuran',
+                  fontFamily: context.quranType.arabicFamily,
                   fontSize: 22,
                   height: 1.6,
                 ),

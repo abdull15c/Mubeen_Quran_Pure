@@ -11,6 +11,8 @@ devices.
 - Tafsir as-Saadi and word-by-word details
 - Hybrid offline search: exact Arabic/Russian FTS plus local vector similarity
 - Juz, hizb, page, surah, and bookmark navigation
+- Three Quran typefaces (KFGQPC HAFS Uthmanic Script, KFGQPC Hafs Smart,
+  Amiri Quran) selectable in settings; translations set in PT Serif
 - Four eye-care themes and hands-free auto-scroll
 - Russian Material UI localization and Arabic-aware highlighted search results
 - Lifecycle-aware screen wake lock while the reader is visible

@@ -55,7 +55,10 @@ class _MubeenQuranAppState extends State<MubeenQuranApp> {
         return MaterialApp(
           title: 'Mubeen Quran Pure',
           debugShowCheckedModeBanner: false,
-          theme: buildAppTheme(widget.controller.themeStyle),
+          theme: buildAppTheme(
+            widget.controller.themeStyle,
+            arabicFont: widget.controller.arabicFont,
+          ),
           locale: Locale(widget.controller.localeCode),
           supportedLocales: AppLocalizations.supportedLocales,
           localizationsDelegates: AppLocalizations.localizationsDelegates,

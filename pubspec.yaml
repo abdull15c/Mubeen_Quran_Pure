@@ -42,7 +42,22 @@ flutter:
     - assets/search/ayah_embeddings.i8
     - assets/search/topic_embeddings.i8
     - assets/fonts/OFL.txt
+    - assets/fonts/OFL-PTSerif.txt
+    - assets/fonts/KFGQPC_EULA.txt
   fonts:
     - family: AmiriQuran
       fonts:
         - asset: assets/fonts/AmiriQuran-Regular.ttf
+    - family: KFGQPCHafs
+      fonts:
+        - asset: assets/fonts/KFGQPC_HafsUthmanic.ttf
+    - family: KFGQPCHafsSmart
+      fonts:
+        - asset: assets/fonts/KFGQPC_HafsSmart.ttf
+    - family: PTSerif
+      fonts:
+        - asset: assets/fonts/PTSerif-Regular.ttf
+        - asset: assets/fonts/PTSerif-Bold.ttf
+          weight: 700
+        - asset: assets/fonts/PTSerif-Italic.ttf
+          style: italic

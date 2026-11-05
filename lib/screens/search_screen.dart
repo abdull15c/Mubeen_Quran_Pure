@@ -680,7 +680,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         result.arabicText,
                         _queryController.text,
                         baseStyle: TextStyle(
-                          fontFamily: 'AmiriQuran',
+                          fontFamily: context.quranType.arabicFamily,
                           fontSize: 25,
                           height: 1.8,
                           color: context.quranColors.ink,
@@ -703,6 +703,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           result.matchText,
                           _queryController.text,
                           baseStyle: TextStyle(
+                            fontFamily: context.quranType.translationFamily,
                             fontSize: 14,
                             height: 1.5,
                             fontStyle: isThematic
@@ -1187,7 +1188,7 @@ class _ThematicTopicSheetState extends State<_ThematicTopicSheet> {
                   textDirection: TextDirection.rtl,
                   textAlign: TextAlign.right,
                   style: TextStyle(
-                    fontFamily: 'AmiriQuran',
+                    fontFamily: context.quranType.arabicFamily,
                     fontSize: 24,
                     height: 1.8,
                     color: colors.ink,
@@ -1198,6 +1199,7 @@ class _ThematicTopicSheetState extends State<_ThematicTopicSheet> {
                   Text(
                     translation,
                     style: TextStyle(
+                      fontFamily: context.quranType.translationFamily,
                       fontSize: 14,
                       height: 1.5,
                       color: colors.ink.withValues(alpha: 0.88),

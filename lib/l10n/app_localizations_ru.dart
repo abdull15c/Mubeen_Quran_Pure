@@ -411,6 +411,32 @@ class AppLocalizationsRu extends AppLocalizations {
       'Тренажёр чтения отправляет запись на сервер с моделью OpenAI Whisper (лицензия MIT), размещённый на Modal. Запись удаляется сразу после обработки.';
 
   @override
+  String get sectionArabicFont => 'Арабский шрифт';
+
+  @override
+  String get fontHafs => 'Усмани Хафс (мединский мусхаф)';
+
+  @override
+  String get fontHafsSmart => 'Хафс Smart (для экрана)';
+
+  @override
+  String get fontAmiri => 'Amiri Quran (классический насх)';
+
+  @override
+  String get sourceFontKfgqpcTitle => 'Шрифты KFGQPC Хафс';
+
+  @override
+  String get sourceFontKfgqpcDesc =>
+      'Шрифты «KFGQPC HAFS Uthmanic Script» и «KFGQPC Hafs Smart» Комплекса имени Короля Фахда по изданию Корана (Медина). Лицензия разрешает бесплатное использование, копирование и распространение без изменений; текст лицензии включён в приложение.';
+
+  @override
+  String get sourceFontSerifTitle => 'Шрифт перевода (PT Serif)';
+
+  @override
+  String get sourceFontSerifDesc =>
+      'Переводы и тафсир набраны шрифтом PT Serif компании ParaType под лицензией SIL Open Font License.';
+
+  @override
   String get viewLicenses => 'Лицензии открытого ПО';
 
   @override

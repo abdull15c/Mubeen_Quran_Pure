@@ -416,7 +416,7 @@ class _RecitationTrainerSheetState extends State<RecitationTrainerSheet> {
             textDirection: TextDirection.rtl,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontFamily: 'AmiriQuran',
+              fontFamily: context.quranType.arabicFamily,
               fontSize: 34,
               color: context.quranColors.gold,
             ),
@@ -1161,7 +1161,7 @@ class _WordRecitationChip extends StatelessWidget {
         Text(
           token.originalText,
           style: TextStyle(
-            fontFamily: 'AmiriQuran',
+            fontFamily: context.quranType.arabicFamily,
             fontSize: 22,
             color: fg,
             height: 1.5,

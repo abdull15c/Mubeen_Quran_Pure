@@ -410,6 +410,32 @@ class AppLocalizationsUz extends AppLocalizations {
       'Tilovat mashqlari yozuvingizni Modal\'da joylashgan OpenAI Whisper (MIT litsenziyasi) modelli serverga yuboradi. Yozuv qayta ishlangandan so\'ng darhol o\'chiriladi.';
 
   @override
+  String get sectionArabicFont => 'Arab shrifti';
+
+  @override
+  String get fontHafs => 'Usmoniy Hafs (Madina mushafi)';
+
+  @override
+  String get fontHafsSmart => 'Hafs Smart (ekran uchun)';
+
+  @override
+  String get fontAmiri => 'Amiri Quran (klassik nasx)';
+
+  @override
+  String get sourceFontKfgqpcTitle => 'KFGQPC Hafs shriftlari';
+
+  @override
+  String get sourceFontKfgqpcDesc =>
+      'Qirol Fahd nomidagi Qur\'on nashriyot majmuasi (Madina) ning «KFGQPC HAFS Uthmanic Script» va «KFGQPC Hafs Smart» shriftlari. Litsenziya o\'zgartirishsiz bepul foydalanish, nusxalash va tarqatishga ruxsat beradi; litsenziya matni ilovaga kiritilgan.';
+
+  @override
+  String get sourceFontSerifTitle => 'Tarjima shrifti (PT Serif)';
+
+  @override
+  String get sourceFontSerifDesc =>
+      'Tarjimalar va tafsir ParaType kompaniyasining PT Serif shriftida SIL Open Font License ostida terilgan.';
+
+  @override
   String get viewLicenses => 'Ochiq kodli dasturiy ta\'minot litsenziyalari';
 
   @override

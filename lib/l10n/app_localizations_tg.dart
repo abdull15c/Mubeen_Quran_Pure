@@ -410,6 +410,32 @@ class AppLocalizationsTg extends AppLocalizations {
       'Машқгари қироат сабти шуморо ба сервер бо модели OpenAI Whisper (литсензияи MIT) дар Modal мефиристад. Сабт пас аз коркард фавран нест карда мешавад.';
 
   @override
+  String get sectionArabicFont => 'Шрифти арабӣ';
+
+  @override
+  String get fontHafs => 'Усмонӣ Ҳафс (Мусҳафи Мадина)';
+
+  @override
+  String get fontHafsSmart => 'Ҳафс Smart (барои экран)';
+
+  @override
+  String get fontAmiri => 'Amiri Quran (насхи классикӣ)';
+
+  @override
+  String get sourceFontKfgqpcTitle => 'Шрифтҳои KFGQPC Ҳафс';
+
+  @override
+  String get sourceFontKfgqpcDesc =>
+      'Шрифтҳои «KFGQPC HAFS Uthmanic Script» ва «KFGQPC Hafs Smart»-и Маҷмааи Малик Фаҳд барои чопи Қуръон (Мадина). Литсензия истифода, нусхабардорӣ ва паҳнкунии ройгон бе тағйиротро иҷозат медиҳад; матни литсензия дар барнома оварда шудааст.';
+
+  @override
+  String get sourceFontSerifTitle => 'Шрифти тарҷума (PT Serif)';
+
+  @override
+  String get sourceFontSerifDesc =>
+      'Тарҷумаҳо ва тафсир бо шрифти PT Serif-и ширкати ParaType таҳти литсензияи SIL Open Font License чида шудаанд.';
+
+  @override
   String get viewLicenses => 'Литсензияҳои нармафзори кушодаасос';
 
   @override

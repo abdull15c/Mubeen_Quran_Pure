@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../controllers/app_controller.dart';
+import 'quran_fonts.dart';
+
+export 'quran_fonts.dart';
 
 @immutable
 final class QuranThemeColors extends ThemeExtension<QuranThemeColors> {
@@ -53,7 +56,10 @@ final class QuranThemeColors extends ThemeExtension<QuranThemeColors> {
   }
 }
 
-ThemeData buildAppTheme(AppThemeStyle style) {
+ThemeData buildAppTheme(
+  AppThemeStyle style, {
+  QuranFont arabicFont = QuranFont.hafs,
+}) {
   final (Brightness brightness, QuranThemeColors colors) = switch (style) {
     AppThemeStyle.parchment => (
       Brightness.light,
@@ -124,7 +130,10 @@ ThemeData buildAppTheme(AppThemeStyle style) {
     colorScheme: colorScheme,
     scaffoldBackgroundColor: colors.paper,
     splashFactory: InkSparkle.splashFactory,
-    extensions: <ThemeExtension<dynamic>>[colors],
+    extensions: <ThemeExtension<dynamic>>[
+      colors,
+      QuranTypography.of(arabicFont),
+    ],
     appBarTheme: AppBarTheme(
       centerTitle: false,
       elevation: 0,

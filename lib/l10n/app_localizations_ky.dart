@@ -410,6 +410,32 @@ class AppLocalizationsKy extends AppLocalizations {
       'Окуу машыктыргычы жазууңузду Modal\'да жайгашкан OpenAI Whisper (MIT лицензиясы) моделдүү серверге жөнөтөт. Жазуу иштетилгенден кийин дароо өчүрүлөт.';
 
   @override
+  String get sectionArabicFont => 'Араб ариби';
+
+  @override
+  String get fontHafs => 'Усмани Хафс (Мадина мусхафы)';
+
+  @override
+  String get fontHafsSmart => 'Хафс Smart (экран үчүн)';
+
+  @override
+  String get fontAmiri => 'Amiri Quran (классикалык насх)';
+
+  @override
+  String get sourceFontKfgqpcTitle => 'KFGQPC Хафс ариптери';
+
+  @override
+  String get sourceFontKfgqpcDesc =>
+      'Падыша Фахд атындагы Куран басып чыгаруу комплексинин (Мадина) «KFGQPC HAFS Uthmanic Script» жана «KFGQPC Hafs Smart» ариптери. Лицензия өзгөртүүсүз акысыз колдонууга, көчүрүүгө жана таратууга уруксат берет; лицензиянын тексти тиркемеге кошулган.';
+
+  @override
+  String get sourceFontSerifTitle => 'Котормо ариби (PT Serif)';
+
+  @override
+  String get sourceFontSerifDesc =>
+      'Котормолор жана тафсир ParaType компаниясынын PT Serif ариби менен SIL Open Font License лицензиясы астында терилген.';
+
+  @override
   String get viewLicenses => 'Ачык булактуу программалык лицензиялар';
 
   @override

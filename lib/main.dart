@@ -10,13 +10,21 @@ import 'data/quran_repository.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   LicenseRegistry.addLicense(() async* {
-    try {
-      final String license = await rootBundle.loadString(
-        'assets/fonts/OFL.txt',
-      );
-      yield LicenseEntryWithLineBreaks(<String>['Amiri Quran Font'], license);
-    } catch (e) {
-      debugPrint('Error loading font license: $e');
+    const Map<String, List<String>> fontLicenses = <String, List<String>>{
+      'assets/fonts/OFL.txt': <String>['Amiri Quran Font'],
+      'assets/fonts/KFGQPC_EULA.txt': <String>[
+        'KFGQPC HAFS Uthmanic Script',
+        'KFGQPC Hafs Smart',
+      ],
+      'assets/fonts/OFL-PTSerif.txt': <String>['PT Serif'],
+    };
+    for (final MapEntry<String, List<String>> entry in fontLicenses.entries) {
+      try {
+        final String license = await rootBundle.loadString(entry.key);
+        yield LicenseEntryWithLineBreaks(entry.value, license);
+      } catch (e) {
+        debugPrint('Error loading font license ${entry.key}: $e');
+      }
     }
   });
   try {

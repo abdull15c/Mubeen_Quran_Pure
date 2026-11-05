@@ -73,6 +73,30 @@ void main() {
       expect(prefs.getString('theme_style'), equals('oled'));
     });
 
+    test('arabic font defaults to Hafs and persists a change', () async {
+      expect(controller.arabicFont, equals(QuranFont.hafs));
+
+      await controller.setArabicFont(QuranFont.amiri);
+      expect(controller.arabicFont, equals(QuranFont.amiri));
+
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      expect(prefs.getString('arabic_font'), equals('amiri'));
+
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        'arabic_font': 'hafsSmart',
+      });
+      final AppController restored = AppController();
+      await restored.initialize();
+      expect(restored.arabicFont, equals(QuranFont.hafsSmart));
+
+      SharedPreferences.setMockInitialValues(<String, Object>{
+        'arabic_font': 'comic-sans',
+      });
+      final AppController fallback = AppController();
+      await fallback.initialize();
+      expect(fallback.arabicFont, equals(QuranFont.hafs));
+    });
+
     test('reader mode can be updated and persisted', () async {
       await controller.setReaderMode(ReaderMode.mushaf);
       expect(controller.readerMode, equals(ReaderMode.mushaf));

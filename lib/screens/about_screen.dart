@@ -58,6 +58,16 @@ class AboutScreen extends StatelessWidget {
           _SourceCard(title: l.sourceFontTitle, description: l.sourceFontDesc),
           const SizedBox(height: 12),
           _SourceCard(
+            title: l.sourceFontKfgqpcTitle,
+            description: l.sourceFontKfgqpcDesc,
+          ),
+          const SizedBox(height: 12),
+          _SourceCard(
+            title: l.sourceFontSerifTitle,
+            description: l.sourceFontSerifDesc,
+          ),
+          const SizedBox(height: 12),
+          _SourceCard(
             title: l.sourceMorphologyTitle,
             description: l.sourceMorphologyDesc,
           ),

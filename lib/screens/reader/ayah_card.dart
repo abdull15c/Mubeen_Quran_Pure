@@ -236,6 +236,7 @@ class AyahCard extends StatelessWidget {
                     SelectableText(
                       translation,
                       style: TextStyle(
+                        fontFamily: context.quranType.translationFamily,
                         fontSize: controller.translationFontSize,
                         height: 1.55,
                         color: context.quranColors.ink.withValues(alpha: 0.88),
@@ -414,7 +415,8 @@ class AyahCard extends StatelessWidget {
                       )
                     : SelectableText(
                         tafsir,
-                        style: const TextStyle(
+                        style: TextStyle(
+                          fontFamily: context.quranType.translationFamily,
                           fontSize: 16.5,
                           height: 1.68,
                           letterSpacing: 0.15,
@@ -505,8 +507,8 @@ class AyahCard extends StatelessWidget {
               word.textArabic,
               textDirection: TextDirection.rtl,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                fontFamily: 'AmiriQuran',
+              style: TextStyle(
+                fontFamily: context.quranType.arabicFamily,
                 fontSize: 34,
                 height: 1.3,
               ),

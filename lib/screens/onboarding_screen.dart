@@ -296,7 +296,7 @@ class _ReminderSlide extends StatelessWidget {
                   textDirection: TextDirection.rtl,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontFamily: 'AmiriQuran',
+                    fontFamily: context.quranType.arabicFamily,
                     fontSize: 23,
                     height: 1.9,
                     color: colors.ink,

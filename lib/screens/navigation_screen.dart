@@ -253,7 +253,7 @@ class _SurahList extends StatelessWidget {
                       surah.nameArabic,
                       textDirection: TextDirection.rtl,
                       style: TextStyle(
-                        fontFamily: 'AmiriQuran',
+                        fontFamily: context.quranType.arabicFamily,
                         fontSize: 25,
                         color: context.quranColors.gold,
                       ),
@@ -647,8 +647,8 @@ class _BookmarksState extends State<_Bookmarks> {
                                   textDirection: TextDirection.rtl,
                                   maxLines: 2,
                                   overflow: TextOverflow.ellipsis,
-                                  style: const TextStyle(
-                                    fontFamily: 'AmiriQuran',
+                                  style: TextStyle(
+                                    fontFamily: context.quranType.arabicFamily,
                                     fontSize: 23,
                                     height: 1.7,
                                   ),

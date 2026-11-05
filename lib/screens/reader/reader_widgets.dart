@@ -508,7 +508,7 @@ class WordChipCard extends StatelessWidget {
                 word.textArabic,
                 textDirection: TextDirection.rtl,
                 style: TextStyle(
-                  fontFamily: 'AmiriQuran',
+                  fontFamily: context.quranType.arabicFamily,
                   fontSize: 22,
                   height: 1.4,
                   color: colors.ink,

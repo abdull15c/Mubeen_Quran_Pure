@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'app_theme.dart';
 
 /// An authentic Islamic ornamental banner frame for Surah headers.
 class SurahOrnamentFrame extends StatelessWidget {
@@ -307,7 +308,7 @@ class AyahEndOrnament extends StatelessWidget {
         toArabicDigits(number),
         textDirection: TextDirection.rtl,
         style: TextStyle(
-          fontFamily: 'AmiriQuran',
+          fontFamily: context.quranType.arabicFamily,
           fontSize: fontSize,
           color: color,
           fontWeight: FontWeight.bold,
